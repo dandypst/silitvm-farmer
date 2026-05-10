@@ -45,3 +45,26 @@ export const CONFIG = {
     },
   },
 };
+
+// config.js (tambahan di bagian bawah)
+module.exports = {
+  // ... existing config ...
+  
+  // Faucet configuration
+  faucet: {
+    enabled: true,                    // Aktifkan auto-claim ketika saldo rendah
+    minBalanceLTC: 0.001,            // Jika saldo di bawah ini, claim faucet
+    faucetUrl: 'https://liteforge.hub.caldera.xyz/',
+    walletInputSelector: 'input[name="address"]',  // sesuaikan
+    submitButtonSelector: 'button[type="submit"]',
+    claimCooldownMinutes: 60,         // Jangan claim lebih dari sekali per jam
+    maxRetries: 3,
+    retryDelayMs: 5000
+  },
+  
+  // FlareSolverr config (opsional)
+  flaresolverr: {
+    url: 'http://localhost:8191/v1',  // Pastikan FlareSolverr running di docker
+    enabled: true
+  }
+};
